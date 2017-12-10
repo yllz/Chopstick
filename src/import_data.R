@@ -1,4 +1,5 @@
 #! /usr/bin/env Rscript
+# created by Linsey Yao on Dec 9, 2017
 # import_data.R
 # This script import the dataset from the URL. This script takes no arguments.
 #
