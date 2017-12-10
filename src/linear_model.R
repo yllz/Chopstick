@@ -1,4 +1,5 @@
 #! /usr/bin/env Rscript
+# created by Linsey Yao on Dec 9, 2017
 # linear_model.R
 # This script creates a new tidy datset and export the summary of a linear model. 
 # This script takes no arguments.
