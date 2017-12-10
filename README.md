@@ -26,4 +26,4 @@ I would run the scripts in the following order:
 
 4. Rscript -e 'ezknitr::ezknit("~/desktop/Milestone2/src/report.Rmd", out_dir = "~/desktop/Milestone2/results")'
 
-	This would create a report.md and report.html file in the `results` folder.
+	This would create a report.md and a report.html file in the `results` folder.
