@@ -1,4 +1,5 @@
 #! /usr/bin/env Rscript
+# created by Linsey Yao on Dec 9, 2017
 # boxplot.R
 # This script exports the boxplot for different groups of chopstick lengths. 
 # This script takes no arguments.
