@@ -51,17 +51,23 @@ There are three options for running the full analysis after the repository is cl
 	```
 	docker pull yao2013/chopstick
 	```
-
-	Then the analysis can be run by using,
+	
+	Then clone the repository,
 	
 	```
-	docker run --rm -v </local/path/to/chopstick>:/home/chopstick yao2013/chopstick make -C '/home/chopstick'
+	git clone https://github.com/yllz/Chopstick.git
+	```
+
+	The analysis now can be run by using,
+	
+	```
+	docker run --rm -v /local/path/to/Chopstick:/home/Chopstick yao2013/chopstick make -C '/home/Chopstick'
 	```
 
 	To remove the data, documents, and figures generated from the analysis,
 
 	```
-	docker run --rm -v </local/path/to/chopstick>:/home/chopstick yao2013/chopstick make -C '/home/chopstick' clean
+	docker run --rm -v /local/path/to/Chopstick:/home/Chopstick yao2013/chopstick make -C '/home/Chopstick' clean
 	```
 
 2. If you prefer to manually install the R packages listed above in the *Dependencies* part, you can run the analysis in the cloned repository directory using the following command.
