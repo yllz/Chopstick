@@ -24,18 +24,12 @@ Null hypothesis: Individual and chopstick length do not affect the effeciency of
 Alternative hypothesis: Individual and chopstick length have effects on the effeciency of chopsticks.
 
 ```{r}
-chopstick <- read.csv("http://blog.yhat.com/static/misc/data/chopstick-effectiveness.csv", sep=",", header = TRUE)
-
-model <- lm(Food.Pinching.Effeciency ~ as.factor(Individual) + as.factor(Chopstick.Length), data=chopstick)
-
-summary(model)
-
-plot(model)
+read.csv("../results/model.csv", sep=",", header=TRUE)
 ```
 
 Based on the summary, both individual and chopstick.length conatin factors with p-values much smaller than the significance level, so we reject the null hypothesis and claim that individual and chopstick length do have effects on the effeciency of chopsticks.
 
-From the diagnostic plots of the model, there are no clear patterns. So the assumptions of equal variance (homoscedasticity) and normality of residuals are satisfied. Besides, the R-square is 0.7898, which means that 78.98% variation in the response vriable is explained by the model. So this model fits well.
+We can also simply use `plot(model)` to get the diagnostic plots of the model, and there are no clear patterns. So the assumptions of equal variance (homoscedasticity) and normality of residuals are satisfied. Besides, the R-square is 0.7898, which means that 78.98% variation in the response vriable is explained by the model. So this model fits well.
 
 Then we make visualiztions to check the relationship between the response variable and explanatory variables. The first plot below is between effeciency and individual. From the output, we can see that different individuals have very different behaviours since the medians and the variances vary a lot, and individual 9 performs best.
 
