@@ -7,6 +7,7 @@
 # Usage: Rscript plot.R <path>
 
 library(tidyverse)
+library(ggplot2)
 library(readr)
 
 # command line args

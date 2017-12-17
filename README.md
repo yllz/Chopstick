@@ -1,29 +1,83 @@
-# Milestone2
+# Chopstick Effeciency Analysis
 
-My Milestone2 page is [here](https://github.com/yllz/Milestone2).
 
-The dataset is drawn from [here](http://blog.yhat.com/static/misc/data/chopstick-effectiveness.csv).
+### Identify Dataset
 
-This project is related to whether the chopstick length affects the food pinching effeciency. 
+This project accesses data from the yhat [blog](http://blog.yhat.com/posts/7-funny-datasets.html).
 
-I propose a null hypothesis that the population means of food pinching effeciency are the same for different chopstick lengths. The corresponding alternative hypothesis is that not all the population means of food pinching effeciency are the same among different chopstick lengths.
+In particular I download and analyze the dataset about the chopstick effeciency.
 
-I would firstly create a linear model summary to check the null hypothesis. Then I would create a boxplot for different chopstick length groups to visualize the comparison.
+| Variable |    Description      |  Class |
+|----------|:-------------:|------:|
+| Food.Pinching.Effeciency | peanuts picked and placed in cup | Real |
+| Individual |  different person | Integer |
+| Chopstick.Length | the length of the chopsticks (mm) | Integer |
 
-I would run the scripts in the following order:
+### Question
 
-1. Rscript import_data.R
+The objective of this analysis is to investigate whether different individuals and chopstick lengths can have effects on the chopstick effeciency.
+
+### Hypotheses
+
+Null hypothesis: `Individual` and `Chopstick.Length` have no effects on `Food.Pinching.Effeciency`.
+
+Alternative hypothesis: `Individual` and `Chopstick.Length` have effects on `Food.Pinching.Effeciency`.
+
+### Results
+
+The results reject the null hypothesis and claim that `Individual` and `Chopstick.Length` actually have effects on the effeciency of chopsticks.
+
+Furthermore, the boxplots seem to show that individual 9 performs best on using chopsticks and the chopsticks with length 240mm are the most effecient.
+
+### Dependencies
+
+We can use `packrat` to manage package dependencies:
+
+- `readr` v 1.1.1
+- `ggplot2` v 2.2.1
+- `ezknitr` v 0.6
+- `packrat` v 0.4.8-1
+- `tidyverse` v 1.1.1
+- `broom` v 0.4.2
+
+### How to run the analysis
+
+There are three options for running the full analysis after the repository is cloned.
+
+1. If you have Docker installed, you can use a combination of `make` and `docker`. 
+
+	First pull the relevant docker image for the project,
+
+	```
+	docker pull yao2013/chopstick
+	```
+
+	Then the analysis can be run by using,
 	
-	This would import the dataset as a chopstick.csv file in the `data` folder.
+	```
+	docker run --rm -v </local/path/to/chopstick>:/home/chopstick yao2013/chopstick make -C '/home/chopstick'
+	```
 
-2. Rscript linear_model.R
+	To remove the data, documents, and figures generated from the analysis,
 
-	This would create a new tidy dataset as a tidy_chopstick.csv file in the `data` folder and export the linear model summary as a model.csv file in the `results` folder.
+	```
+	docker run --rm -v </local/path/to/chopstick>:/home/chopstick yao2013/chopstick make -C '/home/chopstick' clean
+	```
 
-3. Rscript boxplot.R
+2. If you prefer to manually install the R packages listed above in the *Dependencies* part, you can run the analysis in the cloned repository by using the following command.
 
-	This would export the boxplot as a boxplot.png file to the `figure` folder inside the `results` folder.
+	```
+	make all
+	```
 
-4. Rscript -e 'ezknitr::ezknit("~/desktop/Milestone2/src/report.Rmd", out_dir = "~/desktop/Milestone2/results")'
+	Generated data, documents, and figures can then be removed using
 
-	This would create a report.md and a report.html file in the `results` folder.
+	```
+	make clean
+	```
+	
+	And the Makefile dependency graph looks like this: 
+	
+	![](./Makefile.png)
+
+3. Scripts can then be run manually, although the local paths will need to be explicitly defined as arguments within those scripts. A packrat file is included, so all the dependencies for the project is contained. Open the `Rproject` file, and all relevant packages will be temporarily installed to run the analysis. 
