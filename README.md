@@ -64,7 +64,7 @@ There are three options for running the full analysis after the repository is cl
 	docker run --rm -v </local/path/to/chopstick>:/home/chopstick yao2013/chopstick make -C '/home/chopstick' clean
 	```
 
-2. If you prefer to manually install the R packages listed above in the *Dependencies* part, you can run the analysis in the cloned repository by using the following command.
+2. If you prefer to manually install the R packages listed above in the *Dependencies* part, you can run the analysis in the cloned repository directory using the following command.
 
 	```
 	make all
