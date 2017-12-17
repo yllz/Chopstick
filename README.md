@@ -10,7 +10,7 @@ In particular I download and analyze the dataset about the chopstick effeciency.
 | Variable |    Description      |  Class |
 |----------|:-------------:|------:|
 | Food.Pinching.Effeciency | peanuts picked and placed in cup | Real |
-| Individual |  different person | Integer |
+| Individual |  different person index | Integer |
 | Chopstick.Length | the length of the chopsticks (mm) | Integer |
 
 ### Question
