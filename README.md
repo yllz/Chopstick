@@ -86,4 +86,4 @@ There are three options for running the full analysis after the repository is cl
 	
 	![](./Makefile.png)
 
-3. Scripts can then be run manually, although the local paths will need to be explicitly defined as arguments within those scripts. A packrat file is included, so all the dependencies for the project is contained. Open the `Rproject` file, and all relevant packages will be temporarily installed to run the analysis. 
+3. Open the `Rproject` file, and all relevant packages will be temporarily installed to run the analysis since a packrat file is included. Scripts can then be run manually, although the local paths will need to be explicitly defined as arguments within those scripts.
